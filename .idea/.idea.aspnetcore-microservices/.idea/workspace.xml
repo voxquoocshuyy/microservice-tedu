@@ -15,12 +15,14 @@
     <projectFile profileName="Hangfire.API">src/Services/Hangfire.API/Hangfire.API.csproj</projectFile>
     <projectFile profileName="Hangfire.API.PROD">src/Services/Hangfire.API/Hangfire.API.csproj</projectFile>
     <projectFile pubXmlPath="src/Services/Hangfire.API/Properties/PublishProfiles/scheduled-job-tedu - Zip Deploy.pubxml">src/Services/Hangfire.API/Hangfire.API.csproj</projectFile>
+    <projectFile>src/Services/Inventory.Product.API/Inventory.Product.API.csproj</projectFile>
     <projectFile profileName="Inventory.Grpc">src/Services/Inventory/Inventory.Grpc/Inventory.Grpc.csproj</projectFile>
     <projectFile profileName="Inventory.Grpc.PROD">src/Services/Inventory/Inventory.Grpc/Inventory.Grpc.csproj</projectFile>
     <projectFile pubXmlPath="src/Services/Inventory/Inventory.Grpc/Properties/PublishProfiles/inventory-grpc-tedu - Zip Deploy.pubxml">src/Services/Inventory/Inventory.Grpc/Inventory.Grpc.csproj</projectFile>
     <projectFile profileName="Inventory.Product.API">src/Services/Inventory/Inventory.Product.API/Inventory.Product.API.csproj</projectFile>
     <projectFile profileName="Inventory.Product.API.PROD">src/Services/Inventory/Inventory.Product.API/Inventory.Product.API.csproj</projectFile>
     <projectFile pubXmlPath="src/Services/Inventory/Inventory.Product.API/Properties/PublishProfiles/inventory-product-tedu - Zip Deploy.pubxml">src/Services/Inventory/Inventory.Product.API/Inventory.Product.API.csproj</projectFile>
+    <projectFile>src/Services/Ordering.API/Ordering.API.csproj</projectFile>
     <projectFile profileName="Ordering.API">src/Services/Ordering/Ordering.API/Ordering.API.csproj</projectFile>
     <projectFile profileName="Ordering.API.PROD">src/Services/Ordering/Ordering.API/Ordering.API.csproj</projectFile>
     <projectFile pubXmlPath="src/Services/Ordering/Ordering.API/Properties/PublishProfiles/order-tedu - Zip Deploy.pubxml">src/Services/Ordering/Ordering.API/Ordering.API.csproj</projectFile>
@@ -34,456 +36,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c8c458a-cafe-41c2-b0bf-f5eb5c535ebd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/securityhotspotstore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.run/Inventory API Services.run.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.run/Tedu - Microservices.run.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aspnetcore-microservices.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Api Gateway Routing List.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Azureresources.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Centralized Logging.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Inventory.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Redis-For-Dummies_FINAL.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Tedu Microservices.postman_collection.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Tedu-Microservices-Solution_Architect.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/Xay dung he thong voi Microservice.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/postgresql_tutorial.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tedu-microservice-DEV.postman_environment.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tedu-microservice-LOCAL.postman_environment.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/tedu-microservice-PROD.postman_environment.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Controllers/TokenController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/OcelotApiGw.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Properties/PublishProfiles/apigw-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Properties/ServiceDependencies/apigw-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/appsettings.Local.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/ocelot.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/ocelot.Local.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ApiGateways/OcelotApiGw/ocelot.Production.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Common.Logging/Common.Logging.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Common.Logging/LoggingDelegatingHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Common.Logging/Serilogger.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Common/Events/AuditableEventEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Common/Events/BaseEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Common/Events/EventEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Common/Interfaces/IEventEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Common/Interfaces/ISerializeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Common/SeedWork/ValueObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Configurations/IEmailSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Contracts.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/EntityAuditBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/EntityBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/IAuditable.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/IDateTracking.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/IEntityAuditBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/IEntityBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/IRepositoryBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/IUnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/IUserTracking.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/MongoDb/IMongoDbRepositoryAsync.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/Interfaces/MongoDb/IMongoDbRepositoryBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Domains/MongoEntity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Identity/ITokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Sagas/OrderManager/ISagaOrderManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/ScheduledJobs/IScheduledJobService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Services/IEmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Contracts/Services/ISmtpEmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/EventBus/EventBus.Messages/EventBus.Messages.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/EventBus/EventBus.Messages/IIntegrationEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/EventBus/EventBus.Messages/IntegrationBaseEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/EventBus/EventBus.Messages/IntegrationEvents/Events/BasketCheckoutEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/EventBus/EventBus.Messages/IntegrationEvents/Interfaces/IBasketCheckoutEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/Models/PagedList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/Repositories/MongoDb/MongoDbRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/Repositories/MongoDb/MongoDbRepositoryAsync.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/Repositories/RepositoryBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/Repositories/RepositoryQueryBase.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/SerializeService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/UnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Configurations/SMTPEmailSetting.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Exceptions/ValidationException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/AutoMapperExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/ConfigurationExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/HttpClientExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/MassTransitExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/MediatorExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/MongoDB/BsonCollectionAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/MongoDB/MongoCollectionExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Extensions/PermissionHelper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Identity/Authorization/ClaimRequirementAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Identity/Authorization/ClaimRequirementFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Identity/ConfigureAuthAuthorHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Identity/TokenService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Infrastructure.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Middlewares/ErrorWrappingMiddleware.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Policies/HttpClientRetryPolicy.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/ScheduledJobs/HangfireExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/ScheduledJobs/HangfireService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Services/SmtpEmailService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Common/Constants/CommandCode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Common/Constants/FunctionCode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Common/Constants/SystemConstants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/ApiConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/BackgroundJobSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/CacheSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/DatabaseSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/EventBusSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/GrpcSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/HangfireSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/JwtSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/MongoDatabaseSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Configurations/ServiceUrls.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Basket/BasketCheckoutDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Basket/CartDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Basket/CartItemDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Customer/CustomerDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Identity/TokenRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Identity/TokenResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Inventory/CreatedSalesOrderSuccessDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Inventory/GetInventoryPagingQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Inventory/InventoryEntryDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Inventory/PurchaseProductDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Inventory/SaleItemDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Inventory/SalesOrderDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Inventory/SalesProductDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Order/CreateOrderDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Order/OrderDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Product/CreateOrUpdateProductDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Product/CreateProductDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Product/ProductDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/Product/UpdateProductDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/DTOs/ScheduledJob/ReminderCheckoutOrderDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Enums/Inventory/EDocumentType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Enums/Order/EOrderStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/SeedWork/ApiErrorResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/SeedWork/ApiResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/SeedWork/ApiSuccessResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/SeedWork/MetaData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/SeedWork/PagingRequestParameters.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Services/Email/MailRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/BuildingBlocks/Shared/Shared.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Application/IntegrationEvents/EventsHanler/SagaBasketCheckoutEventHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Controllers/CheckoutController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/HttpRepository/BasketHttpRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/HttpRepository/Interfaces/IBasketHttpRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/HttpRepository/Interfaces/IInventoryHttpRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/HttpRepository/Interfaces/IOrderHttpRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/HttpRepository/InventoryHttpRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/HttpRepository/OrderHttpRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/OrderManager/EOrderAction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/OrderManager/EOrderTransactionState.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/OrderManager/OrderManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/OrderManager/OrderResponse.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Properties/PublishProfiles/saga-orchestrator-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Properties/ServiceDependencies/saga-orchestrator-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Saga.Orchestrator.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Services/CheckoutService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/Services/Interfaces/ICheckoutService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Saga.Orchestrator/Saga.Orchestrator/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Basket.API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Controllers/BasketsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/EmailTemplates/reminder-checkout-order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Entities/BasketCheckout.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Entities/Cart.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Entities/CartItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Extensions/GrpcChannelExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/GrpcServices/StockItemGrpcService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Properties/PublishProfiles/basket-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Properties/ServiceDependencies/basket-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Protos/stockItem.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Repositories/BasketRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Repositories/Interfaces/IBasketRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Services/BackgroundJobHttpService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Services/BasketEmailTemplateService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Services/EmailTemplateService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/Services/Interfaces/IEmailTemplateService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Basket.API/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Controllers/CustomersController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Customer.API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Dockerfile" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Entities/Customer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Migrations/20220618020107_Init_CustomerDB.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Migrations/20220618020107_Init_CustomerDB.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Migrations/20220721064922_Order_Add_DocumentNo.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Migrations/20220721064922_Order_Add_DocumentNo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Migrations/CustomerContextModelSnapshot.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Persistence/CustomerContext.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Persistence/CustomerContextSeed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Properties/PublishProfiles/customer-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Properties/ServiceDependencies/customer-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Repositories/CustomerRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Repositories/Interfaces/ICustomerRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Services/CustomerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/Services/Interfaces/ICustomerService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Customer.API/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Controllers/ScheduledJobsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Controllers/WelcomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Extensions/AuthorizationFilter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Hangfire.API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Properties/PublishProfiles/scheduled-job-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Properties/ServiceDependencies/scheduled-job-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Services/BackgroundJobService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/Services/Interfaces/IBackgroundJobService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Hangfire.API/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Entities/InventoryEntry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Extensions/StatusService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Inventory.Grpc.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Properties/PublishProfiles/inventory-grpc-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Properties/ServiceDependencies/inventory-grpc-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Protos/stock.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Repositories/Interfaces/IInventoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Repositories/InventoryRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/Services/InventoryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/appsettings.Local.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Grpc/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Controllers/InventoryController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Entities/InventoryEntry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Extensions/DatabaseSettings.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Extensions/PagedList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Inventory.Product.API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Persistence/InventoryDbSeed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Properties/PublishProfiles/inventory-product-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Properties/ServiceDependencies/inventory-product-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Services/Interfaces/IInventoryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/Services/InventoryService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Inventory/Inventory.Product.API/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Application/IntegrationEvents/EventsHanler/BasketCheckoutEventHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Controllers/OrdersController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Ordering.API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Properties/PublishProfiles/order-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Properties/ServiceDependencies/order-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.API/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Behaviours/PerformanceBehaviour.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Behaviours/UnhandledExceptionBehaviour.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Behaviours/ValidationBehaviour.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Exceptions/NotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Interfaces/IOrderRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Mappings/IMapFrom.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Mappings/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Common/Models/OrderDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/ConfigureServices.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/CreateOrder/CreateOrderCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/CreateOrder/CreateOrderCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/CreateOrder/CreateOrderCommandValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/DeleteOrder/DeleteOrderCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/DeleteOrder/DeleteOrderCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/DeleteOrderByDocumentNo/DeleteOrderByDocumentNoCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/DeleteOrderByDocumentNo/DeleteOrderByDocumentNoCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/UpdateOrder/UpdateOrderCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/UpdateOrder/UpdateOrderCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Commands/UpdateOrder/UpdateOrderCommandValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Common/CreateOrUpdateCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Common/CreateOrUpdateValidator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/OrdersDomainHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Queries/GetOrderById/GetOrderByIdQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Queries/GetOrderById/GetOrderByIdQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Queries/GetOrdersByUserName/GetOrdersByUserNameQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Features/V1/Orders/Queries/GetOrdersByUserName/GetOrdersByUserNameQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Application/Ordering.Application.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Domain/Entities/Order.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Domain/Exceptions/EntityNotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Domain/Exceptions/InvalidEntityTypeException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Domain/GlobalUsing.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Domain/OrderAggregate/Events/OrderCreatedEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Domain/OrderAggregate/Events/OrderDeletedEvent.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Domain/Ordering.Domain.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Configurations/OrderConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/ConfigureServices.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Ordering.Infrastructure.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220620123816_Init_OrderDB.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220620123816_Init_OrderDB.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220620123942_Order_UserName_Set_Nvarchar150.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220620123942_Order_UserName_Set_Nvarchar150.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220621124143_Order_Add_Status.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220621124143_Order_Add_Status.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220721070820_Order_Add_DocumentNo.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/20220721070820_Order_Add_DocumentNo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/Migrations/OrderContextModelSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/OrderContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Persistence/OrderContextSeed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Ordering/Ordering.Infrastructure/Repositories/OrderRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Controllers/ProductsController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Entities/CatalogProduct.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Extensions/ApplicationExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Extensions/ServiceExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/MappingProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Migrations/20220617102203_Init_ProductDB.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Migrations/20220617102203_Init_ProductDB.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Migrations/ProductContextModelSnapshot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Persistence/ProductContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Persistence/ProductContextSeed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Product.API.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Repositories/Interfaces/IProductRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/Repositories/ProductRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/appsettings.Local.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Services/Product.API/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Controllers/HomeController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Models/ErrorViewModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Properties/PublishProfiles/webstatus-tedu - Zip Deploy.pubxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Properties/ServiceDependencies/webstatus-tedu - Zip Deploy/profile.arm.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/Home/Index.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/Home/Privacy.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/Shared/Error.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/Shared/_Layout.cshtml.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/Shared/_ValidationScriptsPartial.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/_ViewImports.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Views/_ViewStart.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/WebHealthStatus.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/css/site.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/js/site.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation/LICENSE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation/dist/additional-methods.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation/dist/additional-methods.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation/dist/jquery.validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery/dist/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery/dist/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WebApps/WebHealthStatus/wwwroot/lib/jquery/dist/jquery.min.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/docker-compose.override.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetcore-microservices/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/RepositoryBaseAsync.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/BuildingBlocks/Infrastructure/Common/RepositoryBaseAsync.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Customer.API/Controllers/WeatherForecastController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Customer.API/Customer.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Customer.API/Customer.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Customer.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Customer.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Customer.API/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Customer.API/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Customer.API/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Customer.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Customer.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Product.API/Extensions/ServiceExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Product.API/Extensions/ServiceExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Product.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Product.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Product.API/Repositories/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Product.API/Repositories/ProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/docker-compose.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/docker-compose.override.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "voxquoocshuyy"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;voxquoocshuyy&quot;
   }
-}]]></component>
+}</component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
     <option name="recentBranches">
@@ -506,41 +93,58 @@
       </RecentBranches>
     </option>
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/voxquoocshuyy/microservice-tedu.git",
-    "accountId": "a9dbb771-8fe0-44ae-89c8-3ac1e06b9c08"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/voxquoocshuyy/microservice-tedu.git&quot;,
+    &quot;accountId&quot;: &quot;a9dbb771-8fe0-44ae-89c8-3ac1e06b9c08&quot;
   }
-}]]></component>
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///Users/quochuy/Study/DotNet/aspnetcore-microservices-training/src/Services/Product.API/appsettings.Local.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/quochuy/Study/DotNet/aspnetcore-microservices-training/src/Services/Product.API/appsettings.Local.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2g4ug0cBmKrfU3E9xLdpNvtMwKs" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Product.API.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.src.pgadmin: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.src.productdb: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.src/docker-compose.override.yml.pgadmin: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.src/docker-compose.override.yml.productdb: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "/Users/quochuy/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache",
-      "/Users/quochuy/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache",
-      "/Users/quochuy/Library/Application Support/Symbols/src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/quochuy/Library/Application Support/JetBrains/Rider2024.1/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/quochuy/Library/Application Support/JetBrains/Rider2024.1/resharper-host/SourcesCache&quot;,
+      &quot;/Users/quochuy/Library/Application Support/Symbols/src&quot;
     ]
   }
-}]]></component>
-  <component name="RunManager" selected="Compound.Tedu - Microservices">
+}</component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.Customer.API">
     <configuration name="Basket.API: basket-tedu - Zip Deploy" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
       <riderPublish configuration="Release" platform="Any CPU" publish_profile="basket-tedu - Zip Deploy.pubxml" pubxml_path="$PROJECT_DIR$/src/Services/Basket.API/Properties/PublishProfiles/basket-tedu - Zip Deploy.pubxml" user_name="$basket-tedu" uuid_high="8795988767665964080" uuid_low="-9164706069875605878" />
       <method v="2" />
@@ -576,6 +180,42 @@
     <configuration name="WebHealthStatus: webstatus-tedu - Zip Deploy" type="DotNetMsBuildPublish" factoryName="Publish to IIS">
       <riderPublish configuration="Release" platform="Any CPU" publish_profile="webstatus-tedu - Zip Deploy.pubxml" pubxml_path="$PROJECT_DIR$/src/WebApps/WebHealthStatus/Properties/PublishProfiles/webstatus-tedu - Zip Deploy.pubxml" user_name="$webstatus-tedu" uuid_high="3292188020379635527" uuid_low="-8140432746090811820" />
       <method v="2" />
+    </configuration>
+    <configuration name="Inventory.Product.API" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/Services/Inventory.Product.API/Inventory.Product.API.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Ordering.API" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/Services/Ordering.API/Ordering.API.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
     </configuration>
     <configuration name="Basket.API" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Services/Basket.API/Basket.API.csproj" />
@@ -847,6 +487,77 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="src/docker-compose.override.yml.pgadmin: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="pgadmin" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="src/docker-compose.override.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="src/docker-compose.override.yml.productdb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="productdb" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="src/docker-compose.override.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="src.pgadmin: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="pgadmin" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="src/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="src.productdb: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="productdb" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="src/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.src.pgadmin: Compose Deployment" />
+        <item itemvalue="Docker.src/docker-compose.override.yml.pgadmin: Compose Deployment" />
+        <item itemvalue="Docker.src/docker-compose.override.yml.productdb: Compose Deployment" />
+        <item itemvalue="Docker.src.productdb: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -857,7 +568,20 @@
       <option name="presentableId" value="Default" />
       <updated>1714969278905</updated>
       <workItem from="1714969280057" duration="430000" />
+      <workItem from="1714970303216" duration="17498000" />
+      <workItem from="1715065999552" duration="347000" />
+      <workItem from="1715066470187" duration="130000" />
+      <workItem from="1715066733833" duration="6137000" />
     </task>
+    <task id="LOCAL-00001" summary="fix: change port for product my sql to 3307">
+      <option name="closed" value="true" />
+      <created>1714989433453</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1714989433453</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -878,5 +602,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="fix: change port for product my sql to 3307" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: change port for product my sql to 3307" />
   </component>
 </project>
