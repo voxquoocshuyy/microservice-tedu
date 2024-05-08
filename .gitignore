@@ -101,4 +101,6 @@ bld/
 **/appsettings.Development.json
 .idea/.idea.OctoQual/.idea
 .idea/*.xml
+.idea/.idea.aspnetcore-microservices/
+.idea/sonarlint/
 
