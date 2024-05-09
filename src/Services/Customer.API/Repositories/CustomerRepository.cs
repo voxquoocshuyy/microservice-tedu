@@ -13,7 +13,7 @@ public class CustomerRepository : RepositoryBaseAsync<Entities.Customer, int, Cu
     {
     }
 
-    public Task<Entities.Customer> GetCustomerByUserNameAsync(string userName)
+    public Task<Entities.Customer?> GetCustomerByUserNameAsync(string userName)
         => FindByCondition(c => c.UserName.Equals(userName)).SingleOrDefaultAsync();
 
     public async Task<IEnumerable<Entities.Customer>> GetCustomersAsync()

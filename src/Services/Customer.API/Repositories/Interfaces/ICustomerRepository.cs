@@ -5,7 +5,7 @@ namespace Customer.API.Repositories.Interfaces;
 
 public interface ICustomerRepository : IRepositoryQueryBase<Entities.Customer, int, CustomerContext>
 {
-    Task<Entities.Customer> GetCustomerByUserNameAsync(string userName);
+    Task<Entities.Customer?> GetCustomerByUserNameAsync(string userName);
     Task<IEnumerable<Entities.Customer>> GetCustomersAsync();
     Task<int> CreateCustomerAsync(Entities.Customer customer);
     Task UpdateCustomerAsync(Entities.Customer customer);
