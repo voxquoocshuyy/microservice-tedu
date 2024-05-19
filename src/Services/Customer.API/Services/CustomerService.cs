@@ -17,13 +17,4 @@ public class CustomerService : ICustomerService
 
     public async Task<IResult> GetCustomersAsync()
         => Results.Ok(await _repository.GetCustomersAsync());
-
-    public async Task<int> CreateCustomerAsync(Entities.Customer customer)
-        =>  await _repository.CreateCustomerAsync(customer);
-
-    public async Task UpdateCustomerAsync(Entities.Customer customer)
-        => await _repository.UpdateCustomerAsync(customer);
-
-    public async Task DeleteCustomerAsync(int id)
-        => await _repository.DeleteCustomerAsync(id);
 }

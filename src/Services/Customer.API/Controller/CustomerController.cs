@@ -14,13 +14,5 @@ public static class CustomerController
                 var customer = await customerService.GetCustomerByUserNameAsync(userName);
                 return customer != null ? Results.Ok(customer) : Results.NotFound();
             });
-        app.MapPost("/api/customers",
-            async (ICustomerService customerService, Customer.API.Entities.Customer customer) =>
-                await customerService.CreateCustomerAsync(customer));
-        app.MapPut("/api/customers",
-            async (ICustomerService customerService, Customer.API.Entities.Customer customer) =>
-                await customerService.UpdateCustomerAsync(customer));
-        app.MapDelete("/api/customers/{id}",
-            async (ICustomerService customerService, int id) => await customerService.DeleteCustomerAsync(id));
     }
 }

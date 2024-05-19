@@ -7,7 +7,4 @@ public interface ICustomerRepository : IRepositoryQueryBase<Entities.Customer, i
 {
     Task<Entities.Customer?> GetCustomerByUserNameAsync(string userName);
     Task<IEnumerable<Entities.Customer>> GetCustomersAsync();
-    Task<int> CreateCustomerAsync(Entities.Customer customer);
-    Task UpdateCustomerAsync(Entities.Customer customer);
-    Task DeleteCustomerAsync(int id);
 }

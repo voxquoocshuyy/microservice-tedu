@@ -13,7 +13,7 @@ using Serilog;
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog(Serilogger.Configure);
 
-Log.Information("Start Customer API up");
+Log.Information("Start Customer Minimal API up");
 
 try
 {
@@ -27,8 +27,7 @@ try
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnectionString");
     builder.Services.AddDbContext<CustomerContext>(options => options.UseNpgsql(connectionString));
     builder.Services.AddScoped<ICustomerRepository, CustomerRepository>()
-        .AddScoped(typeof(IRepositoryBaseAsync<,,>), typeof(RepositoryBaseAsync<,,>))
-        .AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>))
+        .AddScoped(typeof(IRepositoryQueryBase<,,>), typeof(RepositoryQueryBase<,,>))
         .AddScoped<ICustomerService, CustomerService>();
 
     var app = builder.Build();
@@ -38,10 +37,14 @@ try
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "Customer.API v1");
+            c.RoutePrefix = string.Empty;   
+        });
     }
 
-    app.UseHttpsRedirection();
+    // app.UseHttpsRedirection(); 
 
     app.UseAuthorization();
 
