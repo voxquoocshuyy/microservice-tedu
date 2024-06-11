@@ -10,7 +10,6 @@ Log.Information($"Start {builder.Environment.ApplicationName} up");
 try
 {
     builder.Host.UseSerilog(Serilogger.Configure);
-    builder.Host.AddAppConfigurations();
     builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
     
     builder.Host.AddAppConfigurations();
