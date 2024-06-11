@@ -5,11 +5,14 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-Log.Information("Start Product API up");
+Log.Information($"Start {builder.Environment.ApplicationName} up");
 
 try
 {
     builder.Host.UseSerilog(Serilogger.Configure);
+    builder.Host.AddAppConfigurations();
+    builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
+    
     builder.Host.AddAppConfigurations();
     // Add services to the container.
     builder.Services.AddInfrastructure(builder.Configuration);
