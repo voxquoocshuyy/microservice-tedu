@@ -12,6 +12,7 @@ try
     // Add services to the container.
 
     builder.Services.AddControllers();
+    builder.Services.ConfigureServices();
     builder.Host.UseSerilog(Serilogger.Configure);
     builder.Host.AddAppConfigurations();
     builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
