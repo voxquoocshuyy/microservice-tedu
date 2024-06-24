@@ -14,4 +14,15 @@ public static class ServiceExtensions
 
         return services;
     }
+
+    public static void ConfigureRedis(this IServiceCollection services, IConfiguration configuration)
+    {
+        var redisConnectionString = configuration.GetSection("CacheSettings:ConnectionString").Value;
+        if (string.IsNullOrEmpty(redisConnectionString))
+        {
+            throw new ArgumentNullException("Redis connection string is not configured.");
+        }
+
+        services.AddStackExchangeRedisCache(options => { options.Configuration = redisConnectionString; });
+    }
 }
