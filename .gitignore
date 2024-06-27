@@ -103,4 +103,5 @@ bld/
 .idea/*.xml
 .idea/.idea.aspnetcore-microservices/
 .idea/sonarlint/
+.idea/*.config
 

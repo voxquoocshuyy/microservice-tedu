@@ -13,6 +13,7 @@ try
 
     builder.Services.AddControllers();
     builder.Services.ConfigureServices();
+    builder.Services.ConfigureRedis(builder.Configuration);
     builder.Host.UseSerilog(Serilogger.Configure);
     builder.Host.AddAppConfigurations();
     builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
