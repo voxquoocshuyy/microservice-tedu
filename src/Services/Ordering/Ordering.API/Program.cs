@@ -1,5 +1,6 @@
 using Common.Logging;
 using Ordering.Infrastructure;
+using Ordering.Infrastructure.Persistence;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,14 @@ try
     {
         app.UseSwagger();
         app.UseSwaggerUI();
+    }
+    
+    // Initialize and seed the database
+    using (var scope = app.Services.CreateScope())
+    {
+        var orderContextSeed = scope.ServiceProvider.GetRequiredService<OrderContextSeed>();
+        await orderContextSeed.InitializeAsync();
+        await orderContextSeed.SeedAsync();
     }
 
     app.UseHttpsRedirection();

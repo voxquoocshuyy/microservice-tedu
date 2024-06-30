@@ -14,6 +14,7 @@ public static class ConfigureServices
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString"),
             builder => builder.MigrationsAssembly(typeof(OrderContext).Assembly.FullName));
         });
+        services.AddScoped<OrderContextSeed>();
         return services;
     }
 }
