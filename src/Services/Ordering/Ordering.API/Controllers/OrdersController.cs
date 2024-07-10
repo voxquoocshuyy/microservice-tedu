@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Common.Models;
 using Ordering.Application.Features.V1.Orders.Queries.GetOrders;
+using Shared.SeedWork;
 using Shared.Services.Email;
 
 namespace Ordering.API.Controllers;
@@ -23,6 +24,9 @@ public class OrdersController : ControllerBase
     private static class RouteNames
     {
         public const string GetOrders = nameof(GetOrders);
+        public const string CreateOrder = nameof(CreateOrder);
+        public const string UpdateOrder = nameof(UpdateOrder);
+        public const string DeleteOrder = nameof(DeleteOrder);
     }
     [HttpGet("{userName}", Name = RouteNames.GetOrders)]
     [ProducesResponseType(typeof(IEnumerable<OrderDto>), StatusCodes.Status200OK)]
@@ -33,16 +37,11 @@ public class OrdersController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("test-mail")]
-    public async Task<IActionResult> TestMail()
-    {
-        var request = new MailRequest
-        {
-            ToAddress = "voquochuy1502@gmail.com",
-            Body = "Test mail",
-            Subject = "Test mail"
-        };
-        await _smtpEmailService.SendEmailAsync(request);
-        return Ok();
-    }
+    // [HttpPost(Name = RouteNames.CreateOrder)]
+    // [ProducesResponseType(typeof(long), StatusCodes.Status201Created)]
+    // public async Task<ActionResult<ApiResult<long>>> CreateOrder([FromBody] CreateOrderCommand command)
+    // {
+    //     var result = await _mediator.Send(command);
+    //     return Ok(result);
+    // }
 }
