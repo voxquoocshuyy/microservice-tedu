@@ -3,6 +3,8 @@ using Contracts.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Common.Models;
+using Ordering.Application.Features.V1.Orders.Commands.CreateOrders;
+using Ordering.Application.Features.V1.Orders.Commands.UpdateOrders;
 using Ordering.Application.Features.V1.Orders.Queries.GetOrders;
 using Shared.SeedWork;
 using Shared.Services.Email;
@@ -37,11 +39,20 @@ public class OrdersController : ControllerBase
         return Ok(result);
     }
 
-    // [HttpPost(Name = RouteNames.CreateOrder)]
-    // [ProducesResponseType(typeof(long), StatusCodes.Status201Created)]
-    // public async Task<ActionResult<ApiResult<long>>> CreateOrder([FromBody] CreateOrderCommand command)
-    // {
-    //     var result = await _mediator.Send(command);
-    //     return Ok(result);
-    // }
+    [HttpPost(Name = RouteNames.CreateOrder)]
+    [ProducesResponseType(typeof(long), StatusCodes.Status201Created)]
+    public async Task<ActionResult<ApiResult<long>>> CreateOrder([FromBody] CreateOrderCommand command)
+    {
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
+
+    [HttpPut(Name = RouteNames.UpdateOrder)]
+    [ProducesResponseType(typeof(ApiResult<OrderDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<ApiResult<OrderDto>>> UpdateOrder([Required]long id, [FromBody] UpdateOrderCommand command)
+    {
+        command.SetId(id);
+        var result = await _mediator.Send(command);
+        return Ok(result);
+    }
 }
