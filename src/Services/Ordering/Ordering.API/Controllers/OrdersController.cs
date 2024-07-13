@@ -4,6 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Ordering.Application.Common.Models;
 using Ordering.Application.Features.V1.Orders.Commands.CreateOrders;
+using Ordering.Application.Features.V1.Orders.Commands.DeleteOrders;
 using Ordering.Application.Features.V1.Orders.Commands.UpdateOrders;
 using Ordering.Application.Features.V1.Orders.Queries.GetOrders;
 using Shared.SeedWork;
@@ -54,5 +55,14 @@ public class OrdersController : ControllerBase
         command.SetId(id);
         var result = await _mediator.Send(command);
         return Ok(result);
+    }
+    
+    [HttpDelete("{id:long}", Name = RouteNames.DeleteOrder)]
+    [ProducesResponseType(typeof(NoContentResult),StatusCodes.Status204NoContent)]
+    public async Task<IActionResult> DeleteOrder([Required] long id)
+    {
+        var command = new DeleteOrderCommand(id);
+        await _mediator.Send(command);
+        return NoContent();
     }
 }
