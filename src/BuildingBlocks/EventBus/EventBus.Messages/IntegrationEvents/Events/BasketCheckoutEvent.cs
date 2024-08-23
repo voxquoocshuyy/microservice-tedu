@@ -2,7 +2,7 @@ using EventBus.Messages.IntegrationEvents.Interfaces;
 
 namespace EventBus.Messages.IntegrationEvents.Events;
 
-public record BasketCheckoutEvent() : IntegrationBaseEvent, IBasketCheckoutEvent
+public record BasketCheckoutEvent : IntegrationBaseEvent, IBasketCheckoutEvent
 {
     public string UserName { get; set; }
     public decimal TotalPrice { get; set; }
