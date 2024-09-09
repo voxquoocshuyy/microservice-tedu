@@ -15,4 +15,16 @@ public class OrderRepository : RepositoryBaseAsync<Order, long, OrderContext>, I
 
     public async Task<IEnumerable<Order>> GetOrdersByUserName(string userName) =>
         await FindByCondition(o => o.UserName.Equals(userName)).ToListAsync();
+
+    public async Task<Order> CreateOrderAsync(Order order)
+    {
+        await CreateAsync(order);
+        return order;
+    }
+
+    public async Task<Order> UpdateOrderAsync(Order order)
+    {
+        await UpdateAsync(order);
+        return order;
+    }
 }

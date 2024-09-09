@@ -2,6 +2,7 @@ using Infrastructure.Configurations;
 using Infrastructure.Extensions;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Ordering.API.Application.IntegrationEvents.EventsHandler;
 using Shared.Configurations;
 
 namespace Ordering.API.Extensions;
@@ -31,9 +32,18 @@ public static class ServiceExtensions
         services.TryAddSingleton(KebabCaseEndpointNameFormatter.Instance);
         services.AddMassTransit(config =>
         {
+            config.AddConsumersFromNamespaceContaining<BasketCheckoutEventHandler>();
             config.UsingRabbitMq((ctx, cfg) =>
             {
                 cfg.Host(mqConnection);
+
+                // //config topics
+                // cfg.ReceiveEndpoint("basket-checkout-queue", e =>
+                // {
+                //     e.ConfigureConsumer<BasketCheckoutEventHandler>(ctx);
+                // });
+
+                //config all endpoints with class implementing IConsumer
                 cfg.ConfigureEndpoints(ctx);
             });
         });

@@ -1,6 +1,7 @@
 using AutoMapper;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using Ordering.Application.Common.Exceptions;
 using Ordering.Application.Common.Interfaces;
 using Ordering.Application.Common.Models;
 using Ordering.Application.Features.V1.Orders.Commands.CreateOrders;
@@ -21,16 +22,23 @@ public class UpdateOrderCommandHandler : IRequestHandler<UpdateOrderCommand, Api
         _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
+
     private const string MethodName = nameof(UpdateOrderCommandHandler);
+
     public async Task<ApiResult<OrderDto>> Handle(UpdateOrderCommand request, CancellationToken cancellationToken)
     {
-        _logger.LogInformation($"BEGIN: {MethodName} - UserName: {request.UserName}");
+        var orderEntity = await _orderRepository.GetByIdAsync(request.Id);
+        if (orderEntity == null) throw new NotFoundException(nameof(Order), request.Id);
 
-        var orderEntity = _mapper.Map<Order>(request);
-        var newOrder = _orderRepository.UpdateAsync(orderEntity);
-        var result = _mapper.Map<OrderDto>(newOrder);
+        _logger.LogInformation($"BEGIN: {MethodName} - UserName: {request.FirstName}");
 
-        _logger.LogInformation($"END: {MethodName} - UserName: {request.UserName}");
+        orderEntity = _mapper.Map(request, orderEntity);
+        var updatedOrder = await _orderRepository.UpdateOrderAsync(orderEntity);
+        await _orderRepository.SaveChangesAsync();
+        _logger.LogInformation($"Order {updatedOrder.Id} is updated successfully.");
+        var result = _mapper.Map<OrderDto>(updatedOrder);
+
+        _logger.LogInformation($"END: {MethodName} - UserName: {request.FirstName}");
 
         return new ApiSuccessResult<OrderDto>(result);
     }
