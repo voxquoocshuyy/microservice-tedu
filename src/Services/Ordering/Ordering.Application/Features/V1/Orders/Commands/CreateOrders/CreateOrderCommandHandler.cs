@@ -19,18 +19,22 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Api
         _orderRepository = orderRepository ?? throw new ArgumentNullException(nameof(orderRepository));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
+
     private const string MethodName = nameof(CreateOrderCommandHandler);
+
     public async Task<ApiResult<long>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
         _logger.LogInformation($"BEGIN: {MethodName} - UserName: {request.UserName}");
 
         var orderEntity = _mapper.Map<Order>(request);
-        var newOrder = await _orderRepository.CreateOrderAsync(orderEntity);
+        _orderRepository.Create(orderEntity);
+        orderEntity.AddedOrder();
         await _orderRepository.SaveChangesAsync();
-        _logger.LogInformation($"Order {newOrder.Id} is created successfully.");
+
+        _logger.LogInformation($"Order {orderEntity.Id} is created successfully.");
 
         _logger.LogInformation($"END: {MethodName} - UserName: {request.UserName}");
 
-        return new ApiSuccessResult<long>(newOrder.Id);
+        return new ApiSuccessResult<long>(orderEntity.Id);
     }
 }
