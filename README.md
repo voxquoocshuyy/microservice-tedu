@@ -1,5 +1,4 @@
-## Tedu AspnetCore Microservices:
-A large numerous developers have heard about microservices and how it is the next big thing. In any case, for some developers I have coporate with, microservices is simply one more popular expression like DevOps. I have been dealing with various tasks involving microservices for somewhat more than a year now and here, I might want to discuss the hypothesis and the thoughts behind the idea. I built this course to help developers narrow down your challenges with my reality experiences.
+## AspnetCore Microservices:
 
 ## Prepare environment
 
@@ -54,7 +53,8 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d --remo
 
 ## References URLS
 
-## Docker Commands: (cd into folder contain file `docker-compose.yml`, `docker-compose.override.yml`)
+## Docker Commands: 
+(cd into folder contain file `docker-compose.yml`, `docker-compose.override.yml`)
 
 - Up & running: 
 ```Powershell
