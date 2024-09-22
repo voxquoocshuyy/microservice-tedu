@@ -1,3 +1,4 @@
+using Inventory.Product.API.Entities;
 using Inventory.Product.API.Entities.Abstraction;
 using Inventory.Product.API.Extensions;
 using MongoDB.Driver;

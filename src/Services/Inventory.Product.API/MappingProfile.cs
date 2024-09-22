@@ -1,4 +1,5 @@
 using AutoMapper;
+using Inventory.Product.API.Entities;
 using Inventory.Product.API.Entities.Abstraction;
 using Shared.DTOs.Inventory;
 
