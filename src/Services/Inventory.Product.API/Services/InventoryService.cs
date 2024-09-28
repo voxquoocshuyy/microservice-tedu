@@ -1,12 +1,13 @@
 using AutoMapper;
 using Infrastructure.Common.Models;
+using Infrastructure.Common.Repositories;
 using Infrastructure.Extensions;
 using Inventory.Product.API.Entities;
 using Inventory.Product.API.Extensions;
-using Inventory.Product.API.Repositories.Abstraction;
 using Inventory.Product.API.Services.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using Shared.Configurations;
 using Shared.DTOs.Inventory;
 
 namespace Inventory.Product.API.Services;
@@ -14,14 +15,15 @@ namespace Inventory.Product.API.Services;
 public class InventoryService : MongoDbRepository<InventoryEntry>, IInventoryService
 {
     private readonly IMapper _mapper;
-    public InventoryService(IMongoClient client, DatabaseSettings settings, IMapper mapper) : base(client, settings)
+
+    public InventoryService(IMongoClient client, MongoDbSettings settings, IMapper mapper) : base(client, settings)
     {
         _mapper = mapper;
     }
 
     public async Task<IEnumerable<InventoryEntryDto>> GetAllByItemNoAsync(string itemNo)
     {
-        var entities =  await FindAll().Find(x => x.ItemNo == itemNo).ToListAsync();
+        var entities = await FindAll().Find(x => x.ItemNo == itemNo).ToListAsync();
         var result = _mapper.Map<IEnumerable<InventoryEntryDto>>(entities);
         return result;
     }
@@ -29,11 +31,12 @@ public class InventoryService : MongoDbRepository<InventoryEntry>, IInventorySer
     public async Task<PagedList<InventoryEntryDto>> GetAllByItemNoPagingAsync(GetInventoryPagingQuery query)
     {
         var filterSearchTerm = Builders<InventoryEntry>.Filter.Empty;
-        var filterItemNo =  Builders<InventoryEntry>.Filter.Eq(x => x.ItemNo, query.ItemNo());
+        var filterItemNo = Builders<InventoryEntry>.Filter.Eq(x => x.ItemNo, query.ItemNo());
         if (!string.IsNullOrEmpty(query.SearchTerm))
         {
             filterSearchTerm = Builders<InventoryEntry>.Filter.Eq(x => x.DocumentNo, query.SearchTerm);
         }
+
         var andFilter = filterItemNo & filterSearchTerm;
         var pagedList = await Collection.PaginatedListAsync(andFilter, query.PageIndex, query.PageSize);
 
