@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Contracts.Domains.Interfaces;
+using Contracts.Domains;
 
 namespace Product.API.Entities;
 
