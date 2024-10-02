@@ -9,7 +9,7 @@ namespace Infrastructure.Common.Repositories;
 
 public class MongoDbRepository<T> : IMongoDbRepositoryBase<T> where T : MongoEntity
 {
-    private IMongoDatabase Database { get; }
+    public IMongoDatabase Database { get; }
     public MongoDbRepository(IMongoClient client, MongoDbSettings settings)
     {
         Database = client.GetDatabase(settings.DatabaseName);

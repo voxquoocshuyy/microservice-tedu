@@ -13,7 +13,7 @@ public static class HostExtensions
         var settings = services.GetRequiredService<MongoDbSettings>();
         if(settings == null || string.IsNullOrEmpty(settings.ConnectionString))
         {
-            throw new ArgumentNullException(nameof(DatabaseSettings));
+            throw new ArgumentNullException(nameof(MongoDbSettings));
         }
         try
         {

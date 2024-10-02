@@ -3,7 +3,6 @@ using Infrastructure.Common.Models;
 using Infrastructure.Common.Repositories;
 using Infrastructure.Extensions;
 using Inventory.Product.API.Entities;
-using Inventory.Product.API.Extensions;
 using Inventory.Product.API.Services.Interfaces;
 using MongoDB.Bson;
 using MongoDB.Driver;

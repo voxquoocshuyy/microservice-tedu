@@ -14,5 +14,5 @@ public abstract class MongoEntity
     public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     [BsonElement("lastModifiedDate")]
     [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
-    public DateTime LastModifiedDate { get; set; } = DateTime.UtcNow;
+    public DateTime? LastModifiedDate { get; set; }
 }
