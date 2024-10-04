@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Net;
 using AutoMapper;
 using Basket.API.Entities;
+using Basket.API.GrpcServices;
 using Basket.API.Repositories.Interfaces;
 using EventBus.Messages.IntegrationEvents.Events;
 using MassTransit;
@@ -9,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 
 namespace Basket.API.Controllers;
+
 [ApiController]
 [Route("api/[controller]")]
 public class BasketsController : ControllerBase
@@ -16,16 +18,20 @@ public class BasketsController : ControllerBase
     private readonly IBasketRepository _repository;
     private readonly IPublishEndpoint _publishEndpoint;
     private readonly IMapper _mapper;
+    private readonly StockItemGrpcService _stockItemGrpcService;
 
-    public BasketsController(IBasketRepository repository, IMapper mapper, IPublishEndpoint publishEndpoint)
+    public BasketsController(IBasketRepository repository, IMapper mapper, IPublishEndpoint publishEndpoint,
+        StockItemGrpcService stockItemGrpcService)
     {
-        _repository = repository;
-        _mapper = mapper;
-        _publishEndpoint = publishEndpoint;
+        _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
+        _stockItemGrpcService = stockItemGrpcService ?? throw new ArgumentNullException(nameof(stockItemGrpcService));
     }
+
     [HttpGet("{userName}", Name = "GetBasket")]
     [ProducesResponseType(typeof(Cart), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<Cart>> GetBasketByUserName([Required]string userName)
+    public async Task<ActionResult<Cart>> GetBasketByUserName([Required] string userName)
     {
         var result = await _repository.GetBasketByUserName(userName);
         return Ok(result ?? new Cart());
@@ -33,17 +39,25 @@ public class BasketsController : ControllerBase
 
     [HttpPost(Name = "UpdateBasket")]
     [ProducesResponseType(typeof(Cart), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<Cart>> UpdateBasket([FromBody]Cart cart)
+    public async Task<ActionResult<Cart>> UpdateBasket([FromBody] Cart cart)
     {
+        // Communicate with Inventory gRPC service to check quantity available of products
+        foreach (var item in cart.Items)
+        {
+            var stock = await _stockItemGrpcService.GetStock(item.ItemNo);
+            item.SetAvailableQuantity(stock.Quantity);
+        }
+        
         var options = new DistributedCacheEntryOptions()
             .SetAbsoluteExpiration(DateTime.UtcNow.AddHours(1))
             .SetSlidingExpiration(TimeSpan.FromMinutes(5));
         var result = await _repository.UpdateBasket(cart, options);
         return Ok(result);
     }
+
     [HttpDelete("{userName}", Name = "DeleteBasket")]
     [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
-    public async Task<ActionResult<bool>> DeleteBasket([Required]string userName)
+    public async Task<ActionResult<bool>> DeleteBasket([Required] string userName)
     {
         var result = await _repository.DeleteBasketFromUserName(userName);
         return Ok(result);
@@ -60,6 +74,7 @@ public class BasketsController : ControllerBase
         {
             return NotFound();
         }
+
         // Publish the checkout event
         var eventMessage = _mapper.Map<BasketCheckoutEvent>(basketCheckout);
         eventMessage.TotalPrice = basket.TotalPrice;
