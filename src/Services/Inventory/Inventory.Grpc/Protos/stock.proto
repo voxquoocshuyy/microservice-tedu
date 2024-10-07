@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "Inventory.Grpc.Protos";
+
+package greet;
+
+// The greeting service definition.
+service StockProtoService {
+  // Sends a stock request
+  rpc GetStock (GetStockRequest) returns (StockModel);
+}
+
+// The request message containing the stock request
+message GetStockRequest {
+  string itemNo = 1;
+}
+
+// The response message containing the stocks.
+message StockModel {
+  int32 quantity = 1;
+}
