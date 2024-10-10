@@ -16,7 +16,6 @@ try
     builder.Services.ConfigureServices();
     builder.Services.ConfigureRedis(builder.Configuration);
     builder.Services.ConfigureGrpcServices();
-    builder.Host.UseSerilog(Serilogger.Configure);
     builder.Host.AddAppConfigurations();
     builder.Services.AddConfigurationSettings(builder.Configuration);
     builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>());
@@ -35,7 +34,11 @@ try
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", $"{builder.Environment.ApplicationName} v1");
+            c.RoutePrefix = string.Empty;
+        });
     }
 
     app.UseHttpsRedirection();
