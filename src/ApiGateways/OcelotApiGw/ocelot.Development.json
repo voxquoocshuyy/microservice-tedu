@@ -22,7 +22,20 @@
     {
       "UpstreamPathTemplate": "/products/{any}",
       "UpstreamHttpMethod": [
-        "GET",
+        "GET"
+      ],
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/products/{any}",
+      "UpstreamHttpMethod": [
         "PUT",
         "DELETE"
       ],
@@ -33,7 +46,14 @@
           "Host": "localhost",
           "Port": 5002
         }
-      ]
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Admin"
+      }
     },
     {
       "UpstreamPathTemplate": "/products",
@@ -48,7 +68,14 @@
           "Host": "localhost",
           "Port": 5002
         }
-      ]
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [], // Allow all clients will not be affacted by the rate limit
+        "EnableRateLimiting": true,
+        "Period": "2s",
+        "PeriodTimespan": 60, // retry after 60 seconds
+        "Limit": 1 // maximum 5 requests per 2 seconds
+      }
     },
     {
       "UpstreamPathTemplate": "/products/get-product-by-no/{any}",

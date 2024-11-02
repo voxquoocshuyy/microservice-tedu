@@ -4,6 +4,7 @@ using Product.API.Persistence;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog(Serilogger.Configure);
 
 Log.Information($"Start {builder.Environment.ApplicationName} up");
 
@@ -15,6 +16,7 @@ try
     builder.Host.AddAppConfigurations();
     // Add services to the container.
     builder.Services.AddInfrastructure(builder.Configuration);
+    builder.Services.AddConfigurationSettings(builder.Configuration);
    
     var app = builder.Build();
     app.UseInfrastructure();

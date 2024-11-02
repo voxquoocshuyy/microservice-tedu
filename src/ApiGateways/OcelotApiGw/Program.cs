@@ -11,15 +11,12 @@ Log.Information($"Starting {builder.Environment.ApplicationName} up");
 
 try
 {
+    builder.Host.UseSerilog(Serilogger.Configure);
+    builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
     // Add services to the container.
     builder.Host.AddAppConfigurations();
     builder.Services.AddConfigurationSettings(builder.Configuration);
-    builder.Services.AddControllers();
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    builder.Services.ConfigureOcelot(builder.Configuration);
-    builder.Services.ConfigureCors(builder.Configuration);
+    builder.Services.AddInfrastructure(builder.Configuration);
 
     var app = builder.Build();
 
@@ -37,11 +34,18 @@ try
     app.UseCors("CorsPolicy");
 
     app.UseMiddleware<ErrorWrappingMiddleware>();
+    app.UseAuthentication();
 
     // app.UseHttpsRedirection();
 
     app.UseAuthorization();
-
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapGet("/", async context =>
+        {
+            await context.Response.WriteAsync($"Hello voxquoocshuyy! This is {builder.Environment.ApplicationName}");
+        });
+    });
     app.MapControllers();
 
     await app.UseOcelot();
