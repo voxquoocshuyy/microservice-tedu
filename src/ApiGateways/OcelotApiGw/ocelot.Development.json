@@ -58,7 +58,6 @@
     {
       "UpstreamPathTemplate": "/products",
       "UpstreamHttpMethod": [
-        "GET",
         "POST"
       ],
       "DownstreamPathTemplate": "/api/products",
@@ -75,6 +74,40 @@
         "Period": "2s",
         "PeriodTimespan": 60, // retry after 60 seconds
         "Limit": 1 // maximum 5 requests per 2 seconds
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3, // service does not return for 3 times, then break
+        "DurationOfBreak": 5, // break for 5 seconds
+        "TimeoutValue": 20 // timeout after 20 seconds
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/products",
+      "UpstreamHttpMethod": [
+        "GET"
+      ],
+      "DownstreamPathTemplate": "/api/products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5002
+        }
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [], // Allow all clients will not be affacted by the rate limit
+        "EnableRateLimiting": true,
+        "Period": "10s",
+        "PeriodTimespan": 60, // retry after 60 seconds
+        "Limit": 1 // maximum 5 requests per 2 seconds
+      },
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3, // service does not return for 3 times, then break
+        "DurationOfBreak": 5, // break for 5 seconds
+        "TimeoutValue": 20 // timeout after 20 seconds
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 60 // cache for 60 seconds
       }
     },
     {
