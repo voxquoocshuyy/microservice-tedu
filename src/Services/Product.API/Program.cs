@@ -3,8 +3,10 @@ using Product.API.Extensions;
 using Product.API.Persistence;
 using Serilog;
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
 var builder = WebApplication.CreateBuilder(args);
-builder.Host.UseSerilog(Serilogger.Configure);
 
 Log.Information($"Start {builder.Environment.ApplicationName} up");
 

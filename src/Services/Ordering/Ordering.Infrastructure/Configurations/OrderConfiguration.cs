@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Ordering.Domain.Entities;
-using Ordering.Domain.Enums;
+using Shared.Enums.Order;
 
-namespace Ordering.Infrastructure.Persistence.Configurations;
+namespace Ordering.Infrastructure.Configurations;
 
 public class OrderConfiguration : IEntityTypeConfiguration<Order>
 {

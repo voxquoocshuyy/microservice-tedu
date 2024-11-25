@@ -1,40 +1,25 @@
-using Basket.API;
-using Basket.API.Extensions;
 using Common.Logging;
+using Saga.Orchestrator.Extensions;
 using Serilog;
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateLogger();
-
 var builder = WebApplication.CreateBuilder(args);
-builder.Host.UseSerilog(Serilogger.Configure);
 
 Log.Information($"Starting {builder.Environment.ApplicationName} up");
 
 try
 {
-    // Add services to the container.
-
-    builder.Services.AddControllers();
-    builder.Services.ConfigureServices();
-    builder.Services.ConfigureRedis(builder.Configuration);
-    builder.Services.ConfigureGrpcServices();
     builder.Host.AddAppConfigurations();
-    builder.Services.AddConfigurationSettings(builder.Configuration);
-    builder.Services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>());
-    builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
-    
-    // Configure mass transit
-    builder.Services.ConfigureMassTransit();
-
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    builder.Services.AddControllers();
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();

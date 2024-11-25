@@ -1,9 +1,9 @@
 using Common.Logging;
 using Serilog;
 
-namespace Basket.API.Extensions;
+namespace Saga.Orchestrator.Extensions;
 
-public static class ConfigureHostExtensions
+public static class HostExtensions
 {
     public static void AddAppConfigurations(this ConfigureHostBuilder host)
     {

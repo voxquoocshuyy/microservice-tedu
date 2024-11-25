@@ -1,14 +1,17 @@
 using System.ComponentModel.DataAnnotations;
+using AutoMapper;
 using Contracts.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Ordering.Application.Common.Models;
 using Ordering.Application.Features.V1.Orders.Commands.CreateOrders;
 using Ordering.Application.Features.V1.Orders.Commands.DeleteOrders;
 using Ordering.Application.Features.V1.Orders.Commands.UpdateOrders;
+using Ordering.Application.Features.V1.Orders.Queries.GetOrderById;
 using Ordering.Application.Features.V1.Orders.Queries.GetOrders;
+using Shared.DTOs.Order;
 using Shared.SeedWork;
 using Shared.Services.Email;
+using OrderDto = Ordering.Application.Common.Models.OrderDto;
 
 namespace Ordering.API.Controllers;
 [Route("api/v1/[controller]")]
@@ -16,13 +19,13 @@ namespace Ordering.API.Controllers;
 public class OrdersController : ControllerBase
 {
     private readonly IMediator _mediator;
-    private readonly ISmtpEmailService _smtpEmailService;
+    private readonly IMapper _mapper;
 
 
-    public OrdersController(IMediator mediator, ISmtpEmailService smtpEmailService)
+    public OrdersController(IMediator mediator, ISmtpEmailService smtpEmailService, IMapper mapper)
     {
         _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-        _smtpEmailService = smtpEmailService;
+        _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
     private static class RouteNames
     {
@@ -40,10 +43,20 @@ public class OrdersController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("{userName}", Name = RouteNames.GetOrders)]
+    [ProducesResponseType(typeof(IEnumerable<OrderDto>), StatusCodes.Status200OK)]
+    public async Task<ActionResult<IEnumerable<OrderDto>>> GetOrdersById([Required] long id)
+    {
+        var query = new GetOrderByIdQuery(id);
+        var result = await _mediator.Send(query);
+        return Ok(result);
+    }
+
     [HttpPost(Name = RouteNames.CreateOrder)]
     [ProducesResponseType(typeof(long), StatusCodes.Status201Created)]
-    public async Task<ActionResult<ApiResult<long>>> CreateOrder([FromBody] CreateOrderCommand command)
+    public async Task<ActionResult<ApiResult<long>>> CreateOrder([FromBody] CreateOrderDto model)
     {
+        var command = _mapper.Map<CreateOrderCommand>(model);
         var result = await _mediator.Send(command);
         return Ok(result);
     }
