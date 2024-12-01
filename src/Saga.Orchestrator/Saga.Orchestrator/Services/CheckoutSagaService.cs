@@ -8,7 +8,7 @@ using ILogger = Serilog.ILogger;
 
 namespace Saga.Orchestrator.Services;
 
-public class CheckoutService : ICheckoutService
+public class CheckoutSagaService : ICheckoutSagaService
 {
     private readonly IOrderHttpRepository _orderHttpRepository;
     private readonly IBasketHttpRepository _basketHttpRepository;
@@ -16,7 +16,7 @@ public class CheckoutService : ICheckoutService
     private readonly IMapper _mapper;
     private readonly ILogger _logger;
 
-    public CheckoutService(IInventoryHttpRepository inventoryHttpRepository, IBasketHttpRepository basketHttpRepository,
+    public CheckoutSagaService(IInventoryHttpRepository inventoryHttpRepository, IBasketHttpRepository basketHttpRepository,
         IOrderHttpRepository orderHttpRepository, IMapper mapper, ILogger logger)
     {
         _inventoryHttpRepository = inventoryHttpRepository;
@@ -75,5 +75,16 @@ public class CheckoutService : ICheckoutService
 
     private async Task RollbackCheckoutOrder(string username, long orderId, List<string> inventoryDocumentNos)
     {
+        _logger.Information($"START: RollbackCheckoutOrder for username: {username}, " +
+                           $"orderId: {orderId}, inventoryDocumentNos: {string.Join(",", inventoryDocumentNos)}");
+        var deletedListDocumentNos = new List<string>();
+        // Delete order by order id
+        _logger.Information($"START: Delete order by order id: {orderId}");
+        foreach (var documentNo in inventoryDocumentNos)
+        {
+            await _inventoryHttpRepository.DeleteOrderByDocumentNo(documentNo);
+            deletedListDocumentNos.Add(documentNo);
+        }
+        _logger.Information($"END: Deleted inventory document nos: {string.Join(",", deletedListDocumentNos)} successfully");
     }
 }
